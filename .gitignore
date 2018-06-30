@@ -1,0 +1,11 @@
+# intelliJ files
+*.iml
+*.idea
+out/
+target
+
+# java class file
+classes/
+
+# sqlite file
+*.sqlite

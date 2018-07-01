@@ -94,9 +94,10 @@ public class UserController extends Controller {
 
 ## 环境说明
 
-该开发环境满足 web service 开发，后台采用 JFianl，前台可以使用 JFianl 支持的模板或者直接使用 Html + CSS + JQuery，示例页面采用后种形式做演示：
-[ElementUI](http://localhost:8080/user/listForElement)或 
-[MetroUI](http://localhost:8080/user/listForElement)
+该开发环境满足 web service 开发，后台采用 JFianl。
+
+如果采用前后端分离的形式，需要单独启动web端项目：`kcoin_vue`，由`kcoin_vue`项目完成前端页面的渲染，路由等功能，`kcoin_java`项目只需要负责处理
+url 请求，并返回 Json 数据即可，不需要编写其他功能代码。
 
 ## 参考资料
 

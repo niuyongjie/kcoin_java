@@ -15,16 +15,6 @@ public class UserController extends Controller {
         Ret ret = UserService.me.findAll();
         renderJson(ret);
     }
-
-    // 渲染页面
-    public void listForMetro() {
-        render("VueListForMetro.html");
-    }
-
-    // 渲染页面
-    public void listForElement() {
-        render("VueListForElement.html");
-    }
 }
 
 

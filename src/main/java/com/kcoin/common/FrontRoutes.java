@@ -9,8 +9,6 @@ import com.kcoin.user.UserController;
 public class FrontRoutes extends Routes {
 
     public void config() {
-        setBaseViewPath("/views");
-
         add("/user", UserController.class);
     }
 }

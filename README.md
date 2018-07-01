@@ -64,6 +64,11 @@
 `-- pom.xml         maven 配置文件
 ```
 
+## 如何运行
+
+在集成开发环境（Eclipse，IDEA）中 导入 Maven 项目，运行 `KCoinConfig` 类中的 `main` 方法即可。
+在 IDEA 开发工具中， JFianl 集成的 jetty 无法直接热部署，可以部署到 tomcat 中(请同步修改 `configs.properties`中数据库的地址，以免找不到数据库)。
+
 ## 如何新增一个业务模块
 
 新增业务模块的基本步骤如下：

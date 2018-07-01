@@ -9,3 +9,6 @@ classes/
 
 # sqlite file
 *.sqlite
+
+# log file
+*.log

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="metro4:init" content="false">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <title>Metro</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <table class="table striped">
+        <thead>
+        <tr>
+            <th>Email</th>
+            <th>OAUTH_PROVIDER</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in userList">
+            <td>{{item.EMAIL}}</td>
+            <td>{{item.OAUTH_PROVIDER}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            userList: []
+        },
+        mounted: function () {
+            Metro.init();
+            var self = this;
+            $.ajax({
+                url: "/user/getUserList", success: function (res) {
+                    self.userList = res.result;
+
+                }
+            });
+        },
+        methods: {}
+    })
+</script>
+</html>

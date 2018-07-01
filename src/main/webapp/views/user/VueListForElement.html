@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <title>Metro</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+        .el-table .warning-row {
+            background: #f8f8f8;
+        }
+
+        .el-table .success-row {
+            background: #f0f9eb;
+        }
+    </style>
+
+</head>
+<body>
+<el-container id="app">
+    <template>
+        <el-table
+                :data="userList"
+                style="width: 100%"
+                :row-class-name="tableRowClassName">
+            <el-table-column
+                    prop="EMAIL"
+                    label="email">
+            </el-table-column>
+            <el-table-column
+                    prop="OAUTH_PROVIDER"
+                    label="provider">
+            </el-table-column>
+        </el-table>
+    </template>
+</el-container>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            userList: [],
+        },
+        mounted: function () {
+            var self = this
+            $.ajax({
+                url: "/user/getUserList", success: function (res) {
+                    self.userList = res.result;
+
+                }
+            })
+        },
+        methods: {
+            tableRowClassName({row, rowIndex}) {
+                if (rowIndex === 1) {
+                    return 'warning-row';
+                } else if (rowIndex === 3) {
+                    return 'success-row';
+                }
+                return '';
+            }
+        }
+    })
+</script>
+</html>

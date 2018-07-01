@@ -1,5 +1,6 @@
 package com.kcoin.common;
 
+import com.jfinal.aop.Interceptor;
 import com.jfinal.config.*;
 import com.jfinal.core.JFinal;
 import com.jfinal.json.MixedJsonFactory;
@@ -9,6 +10,7 @@ import com.jfinal.plugin.activerecord.CaseInsensitiveContainerFactory;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.template.Engine;
 import com.jfinal.template.source.ClassPathSourceFactory;
+import com.kcoin.common.interceptor.CorsInterceptor;
 import com.kcoin.common.model._MappingKit;
 
 /**
@@ -31,7 +33,7 @@ public class KCoinConfig extends JFinalConfig {
         /**
          * For IDEA
          */
-        JFinal.start("src/main/webapp", 8080, "/");
+        JFinal.start("src/main/webapp", 8089, "/");
     }
 
     /**
@@ -91,7 +93,7 @@ public class KCoinConfig extends JFinalConfig {
      * Global Interceptor
      */
     public void configInterceptor(Interceptors interceptors) {
-
+        interceptors.addGlobalActionInterceptor(new CorsInterceptor());
     }
 
     /**

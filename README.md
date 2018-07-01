@@ -87,7 +87,7 @@ public class UserController extends Controller {
 }
 ```
 3. 配置 url， 在 `com.kcoin.common.FrontRoutes` 路由类中配置增加路由规则：`add("/user", UserController.class);`
-4. 重启容器(新增/删除类，修改方法参数列表，注解等需要重启容器使修改生效)，访问 localhost:8080/user/index
+4. 重启容器(新增/删除类，修改方法参数列表，注解等需要重启容器使修改生效)，访问 localhost:8089/user/index
 
 在数据库中新增/修改表后，运行 `com.kcoin.common._Generator` 类中的 `main` 方法，将会生成对应表的 Model 和 BaseModel 类。
 上面是新增一个业务模块的最简单的过程，实际开发过程需要要 Interceptor,Validator,Service等，请参考 [JFinal 官方文档](http://www.jfinal.com/doc)
